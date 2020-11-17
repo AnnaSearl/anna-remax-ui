@@ -1,0 +1,230 @@
+@import '../../style/theme/index';
+
+$tabs-prefix-cls: #{$anna-prefix}-tabs;
+
+.#{$tabs-prefix-cls} {
+  height: 100%;
+  &-header{
+    &-fixed{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9;
+    }
+    &-content{
+    }
+  }
+  &-plain{
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: scroll;
+    white-space: nowrap;
+    &::-webkit-scrollbar{
+      display: none;
+    }
+    &-title{
+      box-sizing: border-box;
+      height: 72px;
+      line-height: 72px;
+      white-space: nowrap;
+      margin-right: 50px;
+      color: #000;
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+    }
+    &-active{
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 8px;
+      width: 32px;
+      border-radius: 8px;
+      background-color: $brand-color;
+      overflow: hidden;
+      transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+  &-plain-center{
+    justify-content: center;
+    &-title{
+      flex: 1;
+      text-align: center;
+      padding: 0 10px;
+      margin-right: 0;
+    }
+  }
+  &-card{
+    box-sizing: border-box;
+    display: flex;
+    border: 1PX solid $brand-color;
+    margin-bottom: 10px;
+    font-size: 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    &-title{
+      flex: 1;
+      box-sizing: border-box;
+      height: 56px;
+      line-height: 56px;
+      white-space: nowrap;
+      color: $brand-color;
+      text-align: center;
+      border-right: 1PX solid $brand-color;
+      cursor: pointer;
+      &:nth-last-child(1){
+        border-right: none;
+      }
+    }
+    &-active{
+      font-weight: 500;
+      color: $light-base;
+      background-color: $brand-color;
+    }
+  }
+  &-slider{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 26px;
+    &-bg{
+      padding: 6px;
+      background-color: #EDEDED;
+      border-radius: 72px;
+      &-square{
+        border-radius: 16px;
+        .#{$tabs-prefix-cls}-slider-active{
+          border-radius: 12px;
+        }
+      }
+    }
+    &-container{
+      display: flex;
+      justify-content: center;
+      height: 60px;
+      line-height: 60px;
+      position: relative;
+      z-index: 0;
+    }
+    &-title{
+      width: 140px;
+      text-align: center;
+      transition: all 0.3s;
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    &-active{
+      position: absolute;
+      left: 0;
+      background-color: $light-base;
+      width: 50%;
+      height: 100%;
+      border-radius: 60px;
+      z-index: -1;
+      transform: translateX(0);
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      box-shadow: 0 4px 8px #CCCCCC;
+    }
+  }
+  &-content{
+    overflow: hidden;
+    &-wrapper{
+      display: flex;
+    }
+    &-tab{
+      flex-shrink: 0;
+      width: 100%;
+      min-height: 100%;
+      &-inactive{
+        display: none;
+        &-animated{
+          height: 0;
+          min-height: 0;
+        }
+      }
+    }
+  }
+  // vertical
+  &-vertical {
+    height: 100%;
+    display: flex;
+    font-size: 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    &-sidebar {
+      position: relative;
+      background-color: $light-4;
+      width: 170px;
+      color: #000;
+      font-weight: 400;
+      &-item {
+        position: relative;
+        height: 48PX;
+        line-height: 48PX;
+        padding: 0 24px;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      &-active {
+        position: absolute;
+        left: 0;
+        top: 16PX;
+        width: 4PX;
+        height: 16PX;
+        border-radius: 4PX;
+        background-color: $brand-color;
+        transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      &-top{
+        position: absolute;
+        top: -12px;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        background-color: $light-base;
+        overflow: hidden;
+        transform: rotate(90deg);
+        z-index: 1;
+        &-circle{
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          left: -12px;
+          right: -12px;
+          background-color: $light-4;
+        }
+      }
+      &-bottom{
+        position: absolute;
+        bottom: -12px;
+        right: 0;
+        width: 12px;
+        height: 12px;
+        background-color: $light-base;
+        overflow: hidden;
+        z-index: 1;
+        &-circle{
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          left: -12px;
+          right: -12px;
+          background-color: $light-4;
+        }
+      }
+    }
+    &-content {
+      flex: 1;
+      background-color: $light-base;
+    }
+  }
+}
+

@@ -1,0 +1,92 @@
+@import '../../style/theme/index';
+
+$popup-prefix-cls: #{$anna-prefix}-popup;
+
+.#{$popup-prefix-cls} {
+  &-container{
+    position: fixed;
+    z-index: 1000;
+    background-color: $light-base;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    &-transparent{
+      background-color: transparent;
+    }
+    &-center{
+      left: 50%;
+      top: 50%;
+      border-radius: 16px;
+      transform: translate3d(-50%, -50%, 0);
+      // animation: center 3s ease 0.3s 1 alternate forwards;
+      visibility: hidden;
+      opacity: 0;
+    }
+    &-bottom{
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translate3d(0, 100%, 0);
+      border-radius: 20px 20px 0 0;
+    }
+    &-top{
+      left: 0;
+      right: 0;
+      top: 0;
+      transform: translate3d(0, -100%, 0);
+      border-radius: 0 0 20px 20px;
+    }
+    &-left{
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transform: translate3d(-100%, 0, 0);
+      border-radius: 0 20px 20px 0;
+    }
+    &-right{
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translate3d(100%, 0, 0);
+      border-radius: 20px 0 0 20px;
+    }
+    &-ease{
+      // transition-duration: 0.2s;
+      transition-timing-function: ease;
+    }
+    &-square{
+      border-radius: 0;
+    }
+    &-active{
+      transform: translate3d(0, 0, 0);
+    }
+    &-center.#{$popup-prefix-cls}-container-active{
+      visibility: visible;
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    &-close{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    &-title{
+      padding: 30px 0;
+      text-align: center;
+      color: #000;
+    }
+  }
+  @keyframes center {
+    0%{
+      transform: scale3d(1, 1, 1);
+      transform: translate3d(-50%, -50%, 0);
+    }
+    30%{
+      transform: scale3d(0.6, 0.6, 1);
+      transform: translate3d(-50%, -50%, 0);
+    }
+    100%{
+      transform: scale3d(1, 1, 1);
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+}

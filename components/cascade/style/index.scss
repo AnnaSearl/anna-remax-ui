@@ -1,0 +1,101 @@
+@import '../../style/theme/index';
+
+$cascade-prefix-cls: #{$anna-prefix}-cascade;
+
+$radius: 30px;
+
+.#{$cascade-prefix-cls} {
+  background-color: $light-4;
+  color: #333;
+  font-size: 30px;
+  text-align: left;
+  &-selected{
+    min-height: 90px;
+    background-color: $light-base;
+    padding: 24px 0;
+  }
+  &-step{
+    display: flex;
+    padding-bottom: $radius;
+    cursor: pointer;
+    &:nth-last-child(1){
+      padding-bottom: 0;
+    }
+    &-dot{
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: $radius;
+      left: 100%;
+      margin-top: -8px;
+      margin-left: -8px;
+      border-radius: 50%;
+      background-color: #1890FF;
+      z-index: 10;
+    }
+    &-line{
+      position: relative;
+      width: $radius;
+      min-width: $radius;
+      margin-right: $radius;
+      &-default::before{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: calc(100% + 30px);
+        background-color: #E8E8E8;
+        top: $radius;
+        left: 100%;
+        margin-left: -1px;
+      }
+      &-active::before{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: calc(100% + 30px);
+        background-color: $brand-color;
+        top: $radius;
+        left: 100%;
+        margin-left: -1px;
+      }
+    }
+    &-container{
+      flex-grow: 1;
+    }
+    &-content{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-left{
+      display: flex;
+      align-items: center;
+      height: $radius * 2;
+    }
+    &-right{
+      display: flex;
+      align-items: center;
+      padding-right: 20px;
+      color: #999;
+      &-text{
+        padding-right: 10px;
+      }
+      &-arrow{
+        min-width: 24px;
+      }
+    }
+  }
+  &-showed{
+    min-height: 200px;
+    padding: 0 30px;
+    &-title{
+      padding: 30px 0 10px 0;
+      font-size: 24px;
+      color: #666;
+    }
+    &-category{
+      padding: 30px 0;
+      cursor: pointer;
+    }
+  }
+}

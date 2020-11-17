@@ -1,0 +1,101 @@
+@import '../../style/theme/index';
+
+$stepper-prefix-cls: #{$anna-prefix}-stepper;
+
+$small: 48px;
+$default: 56px;
+
+.#{$stepper-prefix-cls} {
+  display: inline-flex;
+  align-items: center;
+  height: $default;
+  line-height: $default;
+  font-size: 32px;
+  &-small{
+    height: $small;
+    line-height: $small;
+    >.#{$stepper-prefix-cls}-btn{
+      width: $small;
+      height: $small;
+      &-plain{
+        width: $small - 4;
+        height: $small - 4;
+      }
+    }
+  }
+  &-minus{
+    border-radius: 8px 0 0 8px;
+  }
+  &-plus{
+    border-radius: 0 8px 8px 0;
+  }
+  &-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $default;
+    height: $default;
+    background-color: #F5F5F5;
+    text-align: center;
+    font-size: 36px;
+    cursor: pointer;
+    &:active{
+      background-color: $gray-2;
+    }
+    &-disabled{
+      cursor: not-allowed;
+      background-color: #FBFBFB;
+      &:active{
+        background-color: #FBFBFB;
+      }
+    }
+    &-plain{
+      width: $default - 4;
+      height: $default - 4;
+      border: 2px solid #DDD;
+      border-radius: 8px;
+      background-color: transparent;
+      &:active{
+        background-color: transparent;
+      }
+      &-disabled{
+        cursor: not-allowed;
+        background-color: transparent;
+        opacity: 0.4;
+      }
+    }
+    &-circle{
+      border-radius: 50%;
+    }
+  }
+  &-input-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 80px;
+    margin: 0 4px;
+    background-color: #FDFFFD;
+    overflow: hidden;
+  }
+  &-input{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    background-color: #F5F5F5;
+    outline: none;  
+    border: none;
+    color: $font-color-1;
+    font-size: 30px;
+    text-align: center;
+    &-disabled{
+      background-color: #FBFBFB;
+    }
+    &-plain{
+      background-color: transparent;
+    }
+    &-circle{
+      border-radius: 16px;
+    }
+  }
+}

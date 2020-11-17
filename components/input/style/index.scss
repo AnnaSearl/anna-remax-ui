@@ -1,0 +1,31 @@
+@import '../../style/theme/index';
+
+$input-prefix-cls: #{$anna-prefix}-input;
+
+.#{$input-prefix-cls} {
+  display: block;
+  min-height: 48px;
+  line-height: inherit;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  color: $font-color-1;
+  background-color: $light-base;
+  outline: none;  
+  border: none;
+  font-size: 28px;
+  &-align {
+    &-right{
+      text-align: right;
+    }
+    &-center{
+      text-align: center;
+    }
+  }
+  &-container {
+    display: flex;
+  }
+  &-extra {
+    margin-left: 8px;
+  }
+}

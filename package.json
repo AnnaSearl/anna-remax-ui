@@ -1,0 +1,152 @@
+{
+  "name": "anna-remax-ui",
+  "version": "1.9.1",
+  "description": "优雅、简洁的 Remax 组件库",
+  "main": "web/index.js",
+  "esnext": "esm/index.js",
+  "module": "esm/index.js",
+  "keywords": [
+    "component",
+    "components",
+    "react",
+    "react-component",
+    "ui",
+    "remax",
+    "remax-ui",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
+  "scripts": {
+    "start": "dumi dev",
+    "build": "npm run compile && npm run dist",
+    "dist": "webpack",
+    "compile": "gulp",
+    "precompile": "npm run clean",
+    "watch:web": "webpack --watch",
+    "clean": "rimraf esm web",
+    "pub": "sh shell/pub.sh",
+    "commit": "sh shell/commit.sh",
+    "lint": "eslint components --fix --ext .ts,.tsx",
+    "docs": "dumi build",
+    "deploy": "gh-pages -d site",
+    "test": "jest --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnnaSearl/annar"
+  },
+  "homepage": "https://annasearl.github.io/anna-remax-ui",
+  "files": [
+    "dist",
+    "esm",
+    "web"
+  ],
+  "sideEffects": [
+    "dist/*",
+    "esm/**/style/*",
+    "web/**/style/*",
+    "*.scss",
+    "components/**/style/*"
+  ],
+  "author": "Anna",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "classnames": "^2.2.6",
+    "dayjs": "^1.8.23"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/plugin-transform-react-pure-annotations": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^26.0.9",
+    "@types/lodash-es": "^4.17.3",
+    "@types/react": "^16.9.23",
+    "@types/react-reconciler": "^0.18.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "@umijs/plugin-sass": "^1.1.1",
+    "autoprefixer": "^9.7.6",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^26.2.2",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "chalk": "^3.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
+    "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
+    "cz-conventional-changelog": "^3.1.0",
+    "directory-named-webpack-plugin": "^4.0.1",
+    "dumi": "^1.0.31",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.9.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "eslint-plugin-unicorn": "^19.0.1",
+    "gh-pages": "^2.2.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.3",
+    "jest": "^26.2.2",
+    "lint-staged": "^10.0.9",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-plugin-px2rem": "^0.8.1",
+    "precss": "^4.0.0",
+    "prettier": "^2.0.2",
+    "react": "^16.13.1",
+    "remax": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
+    "through2": "^3.0.1",
+    "ts-jest": "^26.1.4",
+    "ts-loader": "^7.0.2",
+    "typescript": "^3.8.3",
+    "validate-commit-msg": "^2.14.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2",
+    "webpackbar": "^4.0.0"
+  },
+  "types": "./esm/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "lint-staged": {
+    "./components/**/*.{ts,tsx}": [
+      "npm run lint"
+    ]
+  }
+}
